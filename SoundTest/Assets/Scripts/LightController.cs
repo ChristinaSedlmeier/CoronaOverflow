@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.EventSystems;
+
 
 public class LightController : MonoBehaviour
 
@@ -8,6 +9,7 @@ public class LightController : MonoBehaviour
 
     Material lightOn;
     Material lightOff;
+    
 
     void Start()
     {
@@ -21,7 +23,8 @@ public class LightController : MonoBehaviour
         if (collider.tag == "Player")
         {
             GetComponent<Renderer>().material = lightOn;
-            Debug.Log("is Player");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().muteVideos();
+
         }
     }
 
@@ -30,7 +33,7 @@ public class LightController : MonoBehaviour
         if (collider.tag == "Player")
         {
             GetComponent<Renderer>().material = lightOff;
-            Debug.Log("is Player");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().unMuteVideos();
         }
     }
 }
