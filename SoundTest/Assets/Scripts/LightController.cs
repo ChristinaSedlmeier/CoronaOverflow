@@ -7,14 +7,16 @@ public class LightController : MonoBehaviour
 
 {
 
-    Material lightOn;
-    Material lightOff;
-    
+    //Material lightOn;
+    //Material lightOff;
+    public AudioSource myAudio;
 
     void Start()
     {
-        lightOn = Resources.Load("Emission", typeof(Material)) as Material;
-        lightOff = Resources.Load("LightOff", typeof(Material)) as Material;
+        //lightOn = Resources.Load("Emission", typeof(Material)) as Material;
+        //lightOff = Resources.Load("LightOff", typeof(Material)) as Material;
+        //myAudio = GetComponent<AudioSource>();
+
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -22,8 +24,11 @@ public class LightController : MonoBehaviour
         Debug.Log(collider);
         if (collider.tag == "Player")
         {
-            GetComponent<Renderer>().material = lightOn;
+            //GetComponent<Renderer>().material = lightOn;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().muteVideos();
+            Debug.Log("play Heartbeat");
+            myAudio.Play();
+
 
         }
     }
@@ -32,8 +37,9 @@ public class LightController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            GetComponent<Renderer>().material = lightOff;
+            //GetComponent<Renderer>().material = lightOff;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().unMuteVideos();
+            myAudio.Stop();
         }
     }
 }
