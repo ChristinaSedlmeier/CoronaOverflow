@@ -30,10 +30,10 @@ public  class SoundManager : MonoBehaviour
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
-            video1.volume = Mathf.Lerp(start, 0.02f, currentTime / duration);
-            video2.volume = Mathf.Lerp(start, 0.02f, currentTime / duration);
-            video3.volume = Mathf.Lerp(start, 0.02f, currentTime / duration);
-            video4.volume = Mathf.Lerp(start, 0.02f, currentTime / duration);
+            video1.volume = Mathf.Lerp(start, 0.012f, currentTime / duration);
+            video2.volume = Mathf.Lerp(start, 0.012f, currentTime / duration);
+            video3.volume = Mathf.Lerp(start, 0.012f, currentTime / duration);
+            video4.volume = Mathf.Lerp(start, 0.012f, currentTime / duration);
             yield return null;
         }
     }
