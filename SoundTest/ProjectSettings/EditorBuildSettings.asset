@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/3rdPerson+Fly/Scenes/3rdPerson+Fly.unity
     guid: edce6a3cd6b78e7459bd2864b9295f8c
   - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: d999b20d93775c947a18b2274bc42d85
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
