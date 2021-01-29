@@ -10,9 +10,9 @@ public class LoadCharacter : MonoBehaviour
 
     void Start()
     {
-        int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
-        GameObject prefab = characterPrefabs[selectedCharacter];
-        GameObject clone = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        //int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        //GameObject prefab = characterPrefabs[selectedCharacter];
+        //GameObject clone = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
     }
 
 
