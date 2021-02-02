@@ -18,6 +18,7 @@ public class AudioLoudnessTester_Light : MonoBehaviour
     public float maxSize = 500;
     UnityEngine.Light mylight;
 
+
     private void Start()
 
     {
@@ -30,6 +31,7 @@ public class AudioLoudnessTester_Light : MonoBehaviour
     {
         clipSampleData = new float[sampleDataLength];
     }
+
 
     private void Update()
 
@@ -51,10 +53,15 @@ public class AudioLoudnessTester_Light : MonoBehaviour
             clipLoudness *= sizeFactor;
             clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
 
+            //OnTriggerEnter(Collider collider);
+            //OnTriggerExit(Collider collider);
+
             mylight.intensity = clipLoudness;
-            
+
+
 
         }
+
     }
 
 }
