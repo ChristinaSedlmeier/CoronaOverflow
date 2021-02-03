@@ -46,7 +46,8 @@ public class AudioLoudnessTester_Material : MonoBehaviour
             clipLoudness *= sizeFactor;
             clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
 
-            UnityEngine.Material mat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Light.mat", typeof(Material));
+            UnityEngine.Material mat = Resources.Load("Light", typeof(Material)) as Material;
+            //(Material)AssetDatabase.LoadAssetAtPath("Assets/Resources/Light.mat", typeof(Material));
             Color color = mat.GetColor("_Color");
 
             //float adjustedIntensity = intensiy * clipLoudness;

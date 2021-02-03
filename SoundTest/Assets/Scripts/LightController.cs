@@ -24,14 +24,14 @@ public class LightController : MonoBehaviour
     public float maxSize = 500;
     UnityEngine.Light mylight;
 
-    //Material lightOn;
-    //Material lightOff;
+    Material lightOn;
+    Material lightOff;
 
 
     void Start()
     {
-        //lightOn = Resources.Load("Emission", typeof(Material)) as Material;
-        //lightOff = Resources.Load("LightOff", typeof(Material)) as Material;
+        lightOn = Resources.Load("LightOn", typeof(Material)) as Material;
+        lightOff = Resources.Load("Light", typeof(Material)) as Material;
         //myAudio = GetComponent<AudioSource>();
         mylight = GetComponent<UnityEngine.Light>();
         mylight.intensity = 0.5f;
@@ -50,7 +50,7 @@ public class LightController : MonoBehaviour
         Debug.Log(collider);
         if (collider.tag == "Player")
         {
-            //GetComponent<Renderer>().material = lightOn;
+            GetComponent<Renderer>().material = lightOn;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().muteVideos();
             Debug.Log("play Heartbeat");
             audioSource.Play();
@@ -64,7 +64,7 @@ public class LightController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            //GetComponent<Renderer>().material = lightOff;
+            GetComponent<Renderer>().material = lightOff;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().unMuteVideos();
             audioSource.Stop();
             blinken = false;
