@@ -30,6 +30,7 @@ public class LightController : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         lightOn = Resources.Load("LightOn", typeof(Material)) as Material;
         lightOff = Resources.Load("Light", typeof(Material)) as Material;
         //myAudio = GetComponent<AudioSource>();
