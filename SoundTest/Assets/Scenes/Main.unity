@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 1411828658}
   - component: {fileID: 1411828657}
   m_Layer: 0
-  m_Name: Cube_Erna
+  m_Name: Cube_Andrea
   m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5485,10 +5485,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13acd834f930ef944863e2d68a97448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  video1: {fileID: 1951587732}
-  video2: {fileID: 2093587441}
-  video3: {fileID: 1832362537}
-  video4: {fileID: 2015320535}
+  sounds:
+  - name: Andrea
+    clip: {fileID: 8300000, guid: 3fc41facac53d354fb539bbb04a79531, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 996954d9d56470c4c9ceace226690f6a, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: c70ec7c550030e14fb29728cc652116e, type: 3}
+    volume: 1
+    pitch: 0
+    source: {fileID: 0}
+  videos:
+  - {fileID: 1951587732}
+  - {fileID: 2093587441}
+  - {fileID: 1832362537}
+  - {fileID: 2015320535}
 --- !u!1 &1491499022
 GameObject:
   m_ObjectHideFlags: 0
