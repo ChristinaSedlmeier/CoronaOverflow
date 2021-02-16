@@ -18,16 +18,22 @@ public  class SoundManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            
+            //s.source.clip = s.clip;
+            //s.source.spatialBlend = 1f;
+            //s.source.rolloffMode = AudioRolloffMode.Logarithmic;
+            //s.source.minDistance = 1;
+            //s.source.maxDistance = 40;
             //s.keyFrames = s.keyFrames;
-            s.source.volume = s.volume;
+           // s.source.volume = s.volume;
+           
         }
     }
 
-    public void Play(string name) 
+    public void Play(string name, AudioSource source) 
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source = source;
         if (s == null)
         {
             Debug.LogWarning("Sound " + name + "not found");
@@ -58,6 +64,7 @@ public  class SoundManager : MonoBehaviour
     private IEnumerator PlayDelayed(float sec, float delay, Sound s)
     {
         yield return new WaitForSeconds(delay);
+        s.source.Stop();
         s.source.time = sec;
         s.source.Play();
     }
@@ -65,9 +72,9 @@ public  class SoundManager : MonoBehaviour
 
     void Start ()
     {
-        Play("Andrea_Interview");
-        //Play("Erna_Interview");
-        //Play("Georg_Interview");
+     //   Play("Andrea_Interview");
+    //    Play("Erna_Interview");
+    //    Play("Georg_Interview");
     }
 
     public void muteVideos()

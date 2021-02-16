@@ -14,11 +14,15 @@ public class Sound
 
 
 
+
+
     public KeyFrame[] keyFrames;
 
 
-    [HideInInspector]
+
     public AudioSource source;
+
+
 
 }
 

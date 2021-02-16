@@ -8,7 +8,8 @@ public class LightController : MonoBehaviour
 {
 
     public AudioSource audioSourceHeartBeat;
-   
+    public AudioSource audioSourceInterview;
+
     public float updateStep = 0.01f;
     public int sampleDataLength = 1024;
 
@@ -41,6 +42,7 @@ public class LightController : MonoBehaviour
         
         mylight = GetComponent<UnityEngine.Light>();
         mylight.intensity = 0.5f;
+        FindObjectOfType<SoundManager>().Play(audioName, audioSourceInterview);
 
     }
 

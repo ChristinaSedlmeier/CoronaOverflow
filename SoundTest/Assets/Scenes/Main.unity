@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -1154,6 +1155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -1471,6 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -1788,6 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -2232,6 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -2549,6 +2554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -3069,6 +3075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -3815,6 +3822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -4118,7 +4126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1135278190
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4387,6 +4395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 638086635}
+  audioSourceInterview: {fileID: 1135278190}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -5026,6 +5035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 1272119023}
+  audioSourceInterview: {fileID: 1411828649}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -5176,6 +5186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -5840,6 +5851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 591812585}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -5963,7 +5975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1530407659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6157,6 +6169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 1775778870}
+  audioSourceInterview: {fileID: 1530407659}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -6520,6 +6533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -7238,6 +7252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 1909102389}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
@@ -8449,6 +8464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceHeartBeat: {fileID: 0}
+  audioSourceInterview: {fileID: 0}
   updateStep: 0.01
   sampleDataLength: 1024
   clipLoudness: 0
