@@ -8,7 +8,7 @@ public class LightController : MonoBehaviour
 {
 
     public AudioSource audioSourceHeartBeat;
-    public AudioSource audioSourceInterview;
+   
     public float updateStep = 0.01f;
     public int sampleDataLength = 1024;
 
@@ -28,13 +28,15 @@ public class LightController : MonoBehaviour
     Material lightOn;
     Material lightOff;
 
+    string audioName;
+
+
 
     void Start()
     {
         Cursor.visible = false;
         lightOn = Resources.Load("LightOn", typeof(Material)) as Material;
         lightOff = Resources.Load("Light", typeof(Material)) as Material;
-        //myAudio = GetComponent<AudioSource>();
 
         
         mylight = GetComponent<UnityEngine.Light>();
@@ -45,6 +47,7 @@ public class LightController : MonoBehaviour
     private void Awake()
 
     {
+        audioName = GetComponent<AudioSource>().clip.name;
         clipSampleData = new float[sampleDataLength];
     }
 
@@ -60,7 +63,7 @@ public class LightController : MonoBehaviour
             audioSourceHeartBeat.Play();
             blinken = true;
 
-            FindObjectOfType<SoundManager>().Play(audioSourceInterview);
+            FindObjectOfType<SoundManager>().PlayKey(audioName, 1);
             //mylight.intensity = clipLoudness;
         }
 

@@ -13,7 +13,20 @@ public class Sound
     public float volume;
 
 
+
+    public KeyFrame[] keyFrames;
+
+
     [HideInInspector]
     public AudioSource source;
+
+}
+
+[System.Serializable]
+public class KeyFrame
+{
+    public int frame;
+    public float sec;
+    public float delay;
 
 }

@@ -8,7 +8,7 @@ public class PlayInterview : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<SoundManager>().Play(source);
+        //FindObjectOfType<SoundManager>().Play("Andrea_Interview");
     }
 
     // Update is called once per frame

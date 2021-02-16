@@ -10,45 +10,64 @@ public  class SoundManager : MonoBehaviour
 
 
     public Sound[] sounds;
-    public AudioSource[] interviews;
+
     public AudioSource[] videos;
 
     void Awake ()
     {
 
-        //foreach(Sound s in sounds)
-        //{
-        //    s.source = gameObject.AddComponent<AudioSource>();
-        //    s.source.clip = s.clip;
-
-        //    s.source.volume = s.volume;
-        //}
-        foreach (AudioSource s in interviews)
+        foreach (Sound s in sounds)
         {
-            //Debug.Log(s);
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            //s.keyFrames = s.keyFrames;
+            s.source.volume = s.volume;
         }
     }
 
-    public void Play(AudioSource source)
+    public void Play(string name) 
     {
-        Debug.Log(source.clip);
-        source.Stop();
-        //Sound s = Array.Find(sounds, sound => sound.name == name);
-        //if (s == null)
-        //{
-        //    Debug.LogWarning("Sound " + name + "not found");
-        //    return;
-        //}
-        
-        //s.source.Play();
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + "not found");
+            return;
+        }
+
+        s.source.Play();
     }
 
+
+    public void PlayKey(string name, int frameNum)
+    {
+        Debug.Log(frameNum);
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        KeyFrame f = Array.Find(s.keyFrames, fr => fr.frame == frameNum);
+        Debug.Log(f.sec);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + "not found");
+            //yield return null;
+        }
+        Debug.Log(f.sec);
+        StartCoroutine(PlayDelayed(f.sec, f.delay, s));
+
+       
+    }
+
+    private IEnumerator PlayDelayed(float sec, float delay, Sound s)
+    {
+        yield return new WaitForSeconds(delay);
+        s.source.time = sec;
+        s.source.Play();
+    }
 
 
     void Start ()
     {
-        //Play("Andrea");
+        Play("Andrea_Interview");
         //Play("Erna_Interview");
+        //Play("Georg_Interview");
     }
 
     public void muteVideos()
