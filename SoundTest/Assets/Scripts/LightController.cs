@@ -7,7 +7,9 @@ public class LightController : MonoBehaviour
 
 {
 
-    public AudioSource audioSource;
+    public AudioSource audioSourceHeartBeat;
+    public AudioSource audioSourceInterview;
+
     public float updateStep = 0.01f;
     public int sampleDataLength = 1024;
 
@@ -27,21 +29,27 @@ public class LightController : MonoBehaviour
     Material lightOn;
     Material lightOff;
 
+    string audioName;
+
+
 
     void Start()
     {
         Cursor.visible = false;
         lightOn = Resources.Load("LightOn", typeof(Material)) as Material;
         lightOff = Resources.Load("Light", typeof(Material)) as Material;
-        //myAudio = GetComponent<AudioSource>();
+
+        
         mylight = GetComponent<UnityEngine.Light>();
         mylight.intensity = 0.5f;
+        FindObjectOfType<SoundManager>().Play(audioName, audioSourceInterview);
 
     }
 
     private void Awake()
 
     {
+        audioName = GetComponent<AudioSource>().clip.name;
         clipSampleData = new float[sampleDataLength];
     }
 
@@ -54,8 +62,10 @@ public class LightController : MonoBehaviour
             GetComponent<Renderer>().material = lightOn;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().muteVideos();
             Debug.Log("play Heartbeat");
-            audioSource.Play();
+            audioSourceHeartBeat.Play();
             blinken = true;
+
+            FindObjectOfType<SoundManager>().PlayKey(audioName, 1);
             //mylight.intensity = clipLoudness;
         }
 
@@ -67,7 +77,7 @@ public class LightController : MonoBehaviour
         {
             GetComponent<Renderer>().material = lightOff;
             GameObject.Find("SoundManager").GetComponent<SoundManager>().unMuteVideos();
-            audioSource.Stop();
+            audioSourceHeartBeat.Stop();
             blinken = false;
             mylight.intensity = 0.5f;
         }
@@ -81,7 +91,7 @@ public class LightController : MonoBehaviour
 
         {
             currentUpdateTime = 0f;
-            audioSource.clip.GetData(clipSampleData, audioSource.timeSamples);
+            audioSourceHeartBeat.clip.GetData(clipSampleData, audioSourceHeartBeat.timeSamples);
             clipLoudness = 0f;
 
             foreach (var sample in clipSampleData)
@@ -92,7 +102,7 @@ public class LightController : MonoBehaviour
 
             clipLoudness *= sizeFactor;
             clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
-            Debug.Log("Blinken");
+            
             if  (blinken == true)
             {
                 mylight.intensity = clipLoudness;
