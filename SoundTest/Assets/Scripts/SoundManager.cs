@@ -12,6 +12,7 @@ public  class SoundManager : MonoBehaviour
     public Sound[] sounds;
 
     public AudioSource[] videos;
+    private float frameNumber;
 
     void Awake ()
     {
@@ -46,26 +47,43 @@ public  class SoundManager : MonoBehaviour
 
     public void PlayKey(string name, int frameNum)
     {
-        Debug.Log(frameNum);
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        KeyFrame f = Array.Find(s.keyFrames, fr => fr.frame == frameNum);
-        Debug.Log(f.sec);
         if (s == null)
         {
             Debug.LogWarning("Sound " + name + "not found");
             //yield return null;
         }
-        Debug.Log(f.sec);
-        StartCoroutine(PlayDelayed(f.sec, f.delay, s));
+
+        float currentTime = s.source.time;
+
+        Debug.Log(currentTime + "is current time ");
+
+        if(currentTime >= s.keyFrames[0].delay)
+        {
+            Debug.Log(s.keyFrames[0].delay);
+
+            KeyFrame f = Array.Find(s.keyFrames, fr => (fr.sec <= currentTime) && (fr.delay >= currentTime));
+            Debug.Log(f.frame + " is Keyframe");
+            Debug.Log(f.delay + " is Delay");
+
+            StartCoroutine(PlayDelayed(currentTime, f.delay, s));
+        }
+
+
+
 
        
     }
 
     private IEnumerator PlayDelayed(float sec, float delay, Sound s)
     {
-        yield return new WaitForSeconds(delay);
+        float delaySound = delay - sec ;
+        Debug.Log(delaySound + " is delay ");
+
+        yield return new WaitForSeconds(delaySound);
         s.source.Stop();
-        s.source.time = sec;
+        s.source.time = 0;
         s.source.Play();
     }
 
