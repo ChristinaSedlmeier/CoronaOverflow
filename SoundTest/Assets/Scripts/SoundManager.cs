@@ -110,7 +110,7 @@ public  class SoundManager : MonoBehaviour
             currentTime += Time.deltaTime;
             foreach(AudioSource v in videos)
             {
-                v.volume = Mathf.Lerp(start, 0.012f, currentTime / duration);
+                v.volume = Mathf.Lerp(start, 0.01f, currentTime / duration);
             }
 
             yield return null;
@@ -121,7 +121,7 @@ public  class SoundManager : MonoBehaviour
     {
         float currentTime = 0;
         float start = videos[0].volume;
-        float duration = 0.4f;
+        float duration = 0.5f;
 
         while (currentTime < duration)
         {
