@@ -65,7 +65,7 @@ public class LightController : MonoBehaviour
             audioSourceHeartBeat.Play();
             blinken = true;
 
-            FindObjectOfType<SoundManager>().PlayKey(audioName, 1);
+            FindObjectOfType<SoundManager>().PlayKey(audioName);
             //mylight.intensity = clipLoudness;
         }
 

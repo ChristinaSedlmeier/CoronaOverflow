@@ -45,7 +45,7 @@ public  class SoundManager : MonoBehaviour
     }
 
 
-    public void PlayKey(string name, int frameNum)
+    public void PlayKey(string name)
     {
 
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -59,13 +59,10 @@ public  class SoundManager : MonoBehaviour
 
         Debug.Log(currentTime + "is current time ");
 
-        if(currentTime >= s.keyFrames[0].delay)
+        if(currentTime >= s.keyFrames[0].delay && currentTime < s.keyFrames[s.keyFrames.Length-1].delay)
         {
-            Debug.Log(s.keyFrames[0].delay);
 
-            KeyFrame f = Array.Find(s.keyFrames, fr => (fr.sec <= currentTime) && (fr.delay >= currentTime));
-            Debug.Log(f.frame + " is Keyframe");
-            Debug.Log(f.delay + " is Delay");
+            KeyFrame f = Array.Find(s.keyFrames, fr => (fr.sec <= currentTime) && (fr.delay > currentTime));
 
             StartCoroutine(PlayDelayed(currentTime, f.delay, s));
         }
@@ -78,7 +75,7 @@ public  class SoundManager : MonoBehaviour
 
     private IEnumerator PlayDelayed(float sec, float delay, Sound s)
     {
-        float delaySound = delay - sec ;
+        float delaySound = delay - sec + 1 ;
         Debug.Log(delaySound + " is delay ");
 
         yield return new WaitForSeconds(delaySound);
@@ -90,9 +87,7 @@ public  class SoundManager : MonoBehaviour
 
     void Start ()
     {
-     //   Play("Andrea_Interview");
-    //    Play("Erna_Interview");
-    //    Play("Georg_Interview");
+
     }
 
     public void muteVideos()
